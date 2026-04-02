@@ -4,39 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nijanthan | AI Systems Architect</title>
+<title>Nijanthan | AI Systems Architect • Trading Intelligence Engineer • Digital Marketing Strategist</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
+/* BODY */
 body{
     font-family:'Inter',sans-serif;
-    background:#ffffff;
     color:#0f172a;
     overflow-x:hidden;
+    background:#ffffff;
 }
 
-/* 🔥 FLOATING LIGHT BG */
-.bg-light{
+/* 🔥 BACKGROUND CANVAS */
+#bgCanvas{
     position:fixed;
-    width:600px;
-    height:600px;
-    background:radial-gradient(circle,#3b82f633,transparent 60%);
-    top:20%;
-    left:30%;
-    filter:blur(120px);
-    animation:moveLight 12s infinite alternate ease-in-out;
-    z-index:-1;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-3;
 }
 
-@keyframes moveLight{
-    from{transform:translate(-50px,-30px)}
-    to{transform:translate(50px,40px)}
+/* NOISE TEXTURE */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    opacity:0.12;
+    pointer-events:none;
+    z-index:-2;
 }
 
-/* NAV */
+/* NAVBAR */
 .nav{
     position:fixed;
     width:100%;
@@ -50,6 +56,10 @@ body{
     z-index:100;
 }
 
+.nav strong{
+    font-weight:600;
+}
+
 /* HERO */
 .hero{
     padding:160px 20px 100px;
@@ -58,29 +68,22 @@ body{
 
 .hero h1{
     font-size:64px;
-    background:linear-gradient(90deg,#22c55e,#3b82f6,#9333ea);
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:gradientMove 6s infinite linear;
-}
-
-@keyframes gradientMove{
-    from{filter:hue-rotate(0)}
-    to{filter:hue-rotate(360deg)}
+    font-weight:700;
 }
 
 .hero p{
     margin-top:15px;
-    color:#64748b;
-    max-width:700px;
+    color:#475569;
+    max-width:750px;
     margin-inline:auto;
+    line-height:1.7;
 }
 
 /* SECTION */
 .section{
     max-width:1100px;
     margin:auto;
-    padding:80px 20px;
+    padding:60px 20px;
 }
 
 /* CARD */
@@ -88,8 +91,8 @@ body{
     margin-top:30px;
     padding:30px;
     border-radius:16px;
-    border:1px solid #eee;
     background:white;
+    border:1px solid rgba(0,0,0,0.06);
     opacity:0;
     transform:translateY(40px);
     transition:all 0.8s cubic-bezier(.23,1,.32,1);
@@ -105,6 +108,16 @@ body{
     box-shadow:0 20px 40px rgba(0,0,0,0.08);
 }
 
+.card h2{
+    font-size:26px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
 /* APPS */
 .apps{
     display:grid;
@@ -118,14 +131,13 @@ body{
     gap:15px;
     padding:20px;
     border-radius:14px;
-    border:1px solid #eee;
-    transition:0.4s;
-    cursor:pointer;
+    border:1px solid rgba(0,0,0,0.06);
+    transition:0.3s;
 }
 
 .app:hover{
-    transform:translateY(-8px) scale(1.02);
-    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.08);
 }
 
 /* ICON */
@@ -133,6 +145,7 @@ body{
     width:70px;
     height:70px;
     border-radius:16px;
+    object-fit:cover;
 }
 
 /* BUTTON */
@@ -145,12 +158,6 @@ body{
     color:white;
     font-size:13px;
     text-decoration:none;
-    transition:0.2s;
-}
-
-/* MAGNETIC BUTTON */
-.btn:hover{
-    transform:scale(1.05);
 }
 
 /* FOOTER */
@@ -165,35 +172,41 @@ body{
 
 <body>
 
-<div class="bg-light"></div>
+<!-- 🔥 ANIMATED BACKGROUND -->
+<canvas id="bgCanvas"></canvas>
 
+<!-- NAV -->
 <div class="nav">
 <strong>Nijanthan</strong>
-<div>AI • Apps • Strategy</div>
+<div>AI • Systems • Strategy</div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
 <h1>Nijanthan</h1>
 <p>
-AI Systems Architect • Autonomous Trading Intelligence Engineer • AI-Driven Digital Marketing Strategist • App Developer
+AI Systems Architect • Autonomous Trading Intelligence Engineer • Professional Digital Marketing Strategist • Mobile Application Developer
+<br><br>
+Building intelligent, self-operating systems that combine artificial intelligence, automation, and scalable growth engineering.
 </p>
 </div>
 
+<!-- CONTENT -->
 <div class="section">
 
 <div class="card">
 <h2>Tech + Strategy Hybrid</h2>
 <p>
-I operate at the intersection of artificial intelligence, automation, and digital growth engineering,
-building systems that not only function but continuously optimize and scale.
+I operate at the intersection of artificial intelligence, automation, and performance marketing,
+building systems that not only function but continuously optimize and scale in real-world environments.
 </p>
 </div>
 
 <div class="card">
-<h2>AI Trading System</h2>
+<h2>AI Trading Intelligence</h2>
 <p>
-Developed a fully autonomous AI trading engine capable of real-time analysis, signal generation,
-and execution using predictive and adaptive models.
+Developed a fully autonomous AI trading system capable of real-time analysis, signal generation,
+and execution using predictive modeling, probabilistic logic, and adaptive decision systems.
 </p>
 </div>
 
@@ -203,28 +216,28 @@ and execution using predictive and adaptive models.
 <div class="apps">
 
 <div class="app">
-<img class="icon" src="icon1.png">
+<img class="icon" src="icon1.png" onerror="this.src='icon1.png'">
 <div>
 <h3>Civil Engineering Calc Pro</h3>
-<p>Engineering toolkit for precision workflows.</p>
+<p>Professional engineering toolkit.</p>
 <a class="btn" href="https://play.google.com/store/apps/details?id=com.nijanthan.civilengineeringcalc" target="_blank">View App</a>
 </div>
 </div>
 
 <div class="app">
-<img class="icon" src="icon2.png">
+<img class="icon" src="icon2.png" onerror="this.src='icon2.png'">
 <div>
 <h3>BudgetFlow Pro</h3>
-<p>AI-driven expense tracking system.</p>
+<p>AI-driven financial tracking system.</p>
 <a class="btn" href="https://play.google.com/store/apps/details?id=com.nijanthan.budgetflow" target="_blank">View App</a>
 </div>
 </div>
 
 <div class="app">
-<img class="icon" src="icon3.png">
+<img class="icon" src="icon3.png" onerror="this.src='icon3.png'">
 <div>
 <h3>EMI SIP FD GST Calculator</h3>
-<p>Financial calculation suite.</p>
+<p>Advanced financial calculator suite.</p>
 <a class="btn" href="https://play.google.com/store/apps/details?id=com.nijanthan.financecalculator" target="_blank">View App</a>
 </div>
 </div>
@@ -232,31 +245,83 @@ and execution using predictive and adaptive models.
 </div>
 </div>
 
+<div class="card">
+<h2>Contact</h2>
+<p>Email: nijanthanpro@gmail.com</p>
 </div>
 
+</div>
+
+<!-- FOOTER -->
 <div class="footer">
 © 2026 Nijanthan — AI • Systems • Scale
 </div>
 
+<!-- 🔥 BACKGROUND SCRIPT -->
 <script>
+const canvas = document.getElementById("bgCanvas");
+const ctx = canvas.getContext("2d");
 
-/* SCROLL ANIMATION */
-const cards=document.querySelectorAll('.card');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let points = [];
+
+for(let i=0;i<25;i++){
+    points.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        vx: (Math.random()-0.5)*0.4,
+        vy: (Math.random()-0.5)*0.4
+    });
+}
+
+function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    points.forEach(p=>{
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        let g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 250);
+        g.addColorStop(0, "rgba(59,130,246,0.08)");
+        g.addColorStop(1, "transparent");
+
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 250, 0, Math.PI*2);
+        ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+/* SCROLL REVEAL */
+const cards = document.querySelectorAll('.card');
 
 function reveal(){
-const trigger=window.innerHeight*0.85;
-
-cards.forEach(card=>{
-const top=card.getBoundingClientRect().top;
-if(top<trigger){
-card.classList.add('show');
+    const trigger = window.innerHeight * 0.85;
+    cards.forEach(card=>{
+        const top = card.getBoundingClientRect().top;
+        if(top < trigger){
+            card.classList.add('show');
+        }
+    });
 }
-});
-}
 
-window.addEventListener('scroll',reveal);
+window.addEventListener('scroll', reveal);
 reveal();
 
+/* RESIZE FIX */
+window.addEventListener("resize",()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 </script>
 
 </body>
