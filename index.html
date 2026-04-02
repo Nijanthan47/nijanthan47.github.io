@@ -3,160 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nijanthan | Digital Marketing & AI Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Nijanthan | AI Systems Architect</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#ffffff;
+    color:#0f172a;
+    overflow-x:hidden;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #020617, #0f172a);
-    color: white;
+/* 🔥 FLOATING LIGHT BG */
+.bg-light{
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#3b82f633,transparent 60%);
+    top:20%;
+    left:30%;
+    filter:blur(120px);
+    animation:moveLight 12s infinite alternate ease-in-out;
+    z-index:-1;
+}
+
+@keyframes moveLight{
+    from{transform:translate(-50px,-30px)}
+    to{transform:translate(50px,40px)}
+}
+
+/* NAV */
+.nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #eee;
+    z-index:100;
 }
 
 /* HERO */
-.hero {
-    text-align: center;
-    padding: 120px 20px 80px;
+.hero{
+    padding:160px 20px 100px;
+    text-align:center;
 }
 
-.hero h1 {
-    font-size: 52px;
-    font-weight: 700;
-    background: linear-gradient(90deg, #22c55e, #3b82f6, #9333ea);
-    -webkit-background-clip: text;
-    color: transparent;
+.hero h1{
+    font-size:64px;
+    background:linear-gradient(90deg,#22c55e,#3b82f6,#9333ea);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradientMove 6s infinite linear;
 }
 
-.hero p {
-    margin-top: 15px;
-    font-size: 18px;
-    color: #94a3b8;
+@keyframes gradientMove{
+    from{filter:hue-rotate(0)}
+    to{filter:hue-rotate(360deg)}
+}
+
+.hero p{
+    margin-top:15px;
+    color:#64748b;
+    max-width:700px;
+    margin-inline:auto;
 }
 
 /* SECTION */
-.section {
-    max-width: 1000px;
-    margin: auto;
-    padding: 40px 20px;
+.section{
+    max-width:1100px;
+    margin:auto;
+    padding:80px 20px;
 }
 
 /* CARD */
-.card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 30px;
-    border-radius: 20px;
-    margin-top: 25px;
-    backdrop-filter: blur(12px);
-    transition: 0.3s ease;
+.card{
+    margin-top:30px;
+    padding:30px;
+    border-radius:16px;
+    border:1px solid #eee;
+    background:white;
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 0.8s cubic-bezier(.23,1,.32,1);
 }
 
-.card:hover {
-    transform: translateY(-6px);
+.card.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-/* TITLE */
-.card h2 {
-    font-size: 26px;
-    margin-bottom: 12px;
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
 }
 
-/* TEXT */
-.card p {
-    color: #cbd5f5;
-    line-height: 1.6;
+/* APPS */
+.apps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
 }
 
-/* HIGHLIGHT */
-.highlight {
-    color: #22c55e;
-    font-weight: 500;
+/* APP */
+.app{
+    display:flex;
+    gap:15px;
+    padding:20px;
+    border-radius:14px;
+    border:1px solid #eee;
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.app:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* ICON */
+.icon{
+    width:70px;
+    height:70px;
+    border-radius:16px;
 }
 
 /* BUTTON */
-.button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 22px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #22c55e, #3b82f6);
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 14px;
+    border-radius:8px;
+    background:#0f172a;
+    color:white;
+    font-size:13px;
+    text-decoration:none;
+    transition:0.2s;
+}
+
+/* MAGNETIC BUTTON */
+.btn:hover{
+    transform:scale(1.05);
 }
 
 /* FOOTER */
-.footer {
-    text-align: center;
-    padding: 50px;
-    color: #64748b;
+.footer{
+    text-align:center;
+    padding:60px;
+    color:#64748b;
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
+<div class="bg-light"></div>
+
+<div class="nav">
+<strong>Nijanthan</strong>
+<div>AI • Apps • Strategy</div>
+</div>
+
 <div class="hero">
-    <h1>Nijanthan</h1>
-    <p>High-End Digital Marketing Manager • AI Trading Systems Developer • Mobile App Creator</p>
+<h1>Nijanthan</h1>
+<p>
+AI Systems Architect • Autonomous Trading Intelligence Engineer • AI-Driven Digital Marketing Strategist • App Developer
+</p>
 </div>
 
 <div class="section">
 
-    <div class="card">
-        <h2>About Me</h2>
-        <p>
-        I am a <span class="highlight">high-end digital marketing manager</span> focused on performance-driven growth,
-        brand scaling, and advanced acquisition strategies. Alongside marketing, I design and build
-        <span class="highlight">AI-powered systems</span> and mobile applications that deliver measurable impact.
-        </p>
-    </div>
+<div class="card">
+<h2>Tech + Strategy Hybrid</h2>
+<p>
+I operate at the intersection of artificial intelligence, automation, and digital growth engineering,
+building systems that not only function but continuously optimize and scale.
+</p>
+</div>
 
-    <div class="card">
-        <h2>AI & Technology</h2>
-        <p>
-        I have developed my own <span class="highlight">AI-driven trading automation system</span> designed for
-        intelligent market analysis, decision-making, and execution. My work focuses on combining
-        automation, data intelligence, and scalable architecture to build next-generation solutions.
-        </p>
-    </div>
+<div class="card">
+<h2>AI Trading System</h2>
+<p>
+Developed a fully autonomous AI trading engine capable of real-time analysis, signal generation,
+and execution using predictive and adaptive models.
+</p>
+</div>
 
-    <div class="card">
-        <h2>Mobile Applications</h2>
-        <p>
-        I actively develop modern mobile applications with a focus on usability, performance, and
-        real-world value. My apps are built to deliver seamless experiences while integrating smart
-        analytics and automation.
-        </p>
-    </div>
+<div class="card">
+<h2>Applications</h2>
 
-    <div class="card">
-        <h2>Featured App</h2>
-        <p><strong>BudgetFlow Pro – Expense Tracker</strong></p>
-        <p>
-        A powerful expense tracking application designed to help users manage finances, monitor
-        spending, and make smarter financial decisions with clarity and control.
-        </p>
-    </div>
+<div class="apps">
 
-    <div class="card">
-        <h2>Contact</h2>
-        <p>Email: nijanthanpro@gmail.com</p>
-    </div>
+<div class="app">
+<img class="icon" src="icon1.png">
+<div>
+<h3>Civil Engineering Calc Pro</h3>
+<p>Engineering toolkit for precision workflows.</p>
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.nijanthan.civilengineeringcalc" target="_blank">View App</a>
+</div>
+</div>
+
+<div class="app">
+<img class="icon" src="icon2.png">
+<div>
+<h3>BudgetFlow Pro</h3>
+<p>AI-driven expense tracking system.</p>
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.nijanthan.budgetflow" target="_blank">View App</a>
+</div>
+</div>
+
+<div class="app">
+<img class="icon" src="icon3.png">
+<div>
+<h3>EMI SIP FD GST Calculator</h3>
+<p>Financial calculation suite.</p>
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.nijanthan.financecalculator" target="_blank">View App</a>
+</div>
+</div>
+
+</div>
+</div>
 
 </div>
 
 <div class="footer">
-    © 2026 Nijanthan — Digital Intelligence & Innovation
+© 2026 Nijanthan — AI • Systems • Scale
 </div>
+
+<script>
+
+/* SCROLL ANIMATION */
+const cards=document.querySelectorAll('.card');
+
+function reveal(){
+const trigger=window.innerHeight*0.85;
+
+cards.forEach(card=>{
+const top=card.getBoundingClientRect().top;
+if(top<trigger){
+card.classList.add('show');
+}
+});
+}
+
+window.addEventListener('scroll',reveal);
+reveal();
+
+</script>
 
 </body>
 </html>
