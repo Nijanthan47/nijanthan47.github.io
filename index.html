@@ -6,205 +6,96 @@
 
 <title>Nijanthan | AI Systems Architect</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* ========================= */
-/* DESIGN SYSTEM */
-/* ========================= */
-
-:root{
-  --bg:#f4f8fc;
-  --surface:rgba(255,255,255,0.8);
-  --text:#0f172a;
-  --muted:#475569;
-  --primary:#2563eb;
-  --accent:#7c3aed;
-
-  --radius:18px;
-  --shadow:0 10px 30px rgba(0,0,0,0.06);
-}
 
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:'Inter',sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  overflow-x:hidden;
+    font-family:'Inter',sans-serif;
+    color:#0f172a;
+    overflow-x:hidden;
 }
 
-/* ========================= */
-/* BACKGROUND SYSTEM */
-/* ========================= */
-
-.tech-bg{
-  position:fixed;
-  inset:0;
-  z-index:-3;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(37,99,235,0.1), transparent 30%),
-    radial-gradient(circle at 90% 10%, rgba(124,58,237,0.1), transparent 30%),
-    linear-gradient(180deg,#fbfdff,#eef4fb);
+/* 🔥 BACKGROUND CANVAS */
+#meshCanvas{
+    position:fixed;
+    inset:0;
+    z-index:-3;
 }
 
-/* GRID */
-.tech-bg::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px);
-  background-size:60px 60px;
-  animation:gridMove 20s linear infinite;
+/* 🔥 PARTICLE CANVAS */
+#particleCanvas{
+    position:fixed;
+    inset:0;
+    z-index:-2;
 }
 
-/* PARTICLES */
-.particles span{
-  position:absolute;
-  width:6px;
-  height:6px;
-  background:rgba(37,99,235,0.4);
-  border-radius:50%;
-  animation:float 12s linear infinite;
+/* 🔥 NOISE LAYER */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    opacity:0.12;
+    pointer-events:none;
+    z-index:-1;
 }
 
-/* ANIMATIONS */
-@keyframes gridMove{
-  from{background-position:0 0}
-  to{background-position:60px 60px}
-}
-
-@keyframes float{
-  0%{transform:translateY(100vh);opacity:0}
-  20%{opacity:1}
-  80%{opacity:0.6}
-  100%{transform:translateY(-10vh);opacity:0}
-}
-
-/* ========================= */
-/* LAYOUT */
-/* ========================= */
-
-.container{
-  width:min(1100px,90%);
-  margin:auto;
-}
-
-.section{
-  padding:80px 0;
-}
-
-/* ========================= */
-/* NAVBAR */
-/* ========================= */
-
+/* NAV */
 .nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:16px 30px;
-  display:flex;
-  justify-content:space-between;
-  background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #eee;
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid #eee;
 }
 
-/* ========================= */
 /* HERO */
-/* ========================= */
-
 .hero{
-  padding:160px 20px 100px;
-  text-align:center;
+    padding:160px 20px 100px;
+    text-align:center;
 }
 
 .hero h1{
-  font-size:60px;
-  font-weight:900;
+    font-size:64px;
+    font-weight:700;
 }
 
 .hero p{
-  margin-top:15px;
-  color:var(--muted);
+    margin-top:15px;
+    color:#475569;
+    max-width:700px;
+    margin:auto;
 }
 
-/* ========================= */
-/* CARDS */
-/* ========================= */
+/* SECTION */
+.section{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
 
+/* CARD */
 .card{
-  padding:30px;
-  border-radius:var(--radius);
-  background:var(--surface);
-  border:1px solid rgba(0,0,0,0.06);
-  box-shadow:var(--shadow);
-  transition:0.3s;
+    margin-top:30px;
+    padding:30px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(0,0,0,0.06);
+    transition:0.4s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
-}
-
-/* ========================= */
-/* APPS */
-/* ========================= */
-
-.apps{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:20px;
-}
-
-.app{
-  display:flex;
-  gap:15px;
-  padding:20px;
-  border-radius:var(--radius);
-  background:white;
-  border:1px solid #eee;
-  transition:0.3s;
-}
-
-.app:hover{
-  transform:translateY(-6px);
-  box-shadow:var(--shadow);
-}
-
-.icon{
-  width:60px;
-  height:60px;
-  border-radius:12px;
-}
-
-/* BUTTON */
-.btn{
-  margin-top:10px;
-  display:inline-block;
-  padding:8px 14px;
-  background:var(--primary);
-  color:white;
-  border-radius:8px;
-  font-size:13px;
-}
-
-/* ========================= */
-/* REVEAL */
-/* ========================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.6s;
-}
-
-.reveal.show{
-  opacity:1;
-  transform:translateY(0);
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
 }
 
 </style>
@@ -212,74 +103,142 @@ body{
 
 <body>
 
-<div class="tech-bg"></div>
-
-<!-- PARTICLES -->
-<div class="particles">
-  <span style="left:10%"></span>
-  <span style="left:30%"></span>
-  <span style="left:50%"></span>
-  <span style="left:70%"></span>
-  <span style="left:90%"></span>
-</div>
+<!-- 🔥 BACKGROUND -->
+<canvas id="meshCanvas"></canvas>
+<canvas id="particleCanvas"></canvas>
 
 <!-- NAV -->
 <div class="nav">
 <strong>Nijanthan</strong>
-<div>AI • Systems • Apps</div>
+<div>AI • Systems • Strategy</div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
 <h1>Nijanthan</h1>
-<p>AI Systems Architect • Trading Intelligence Engineer • Digital Marketing Strategist</p>
+<p>
+AI Systems Architect • Autonomous Trading Intelligence Engineer • Digital Marketing Strategist • Mobile Application Developer
+</p>
 </div>
 
-<div class="container section">
+<div class="section">
 
-<div class="card reveal">
-<h2>Tech + Strategy</h2>
-<p>I build AI-powered systems and growth engines combining marketing, automation and development.</p>
+<div class="card">
+<h2>Tech + Strategy Hybrid</h2>
+<p>
+I operate at the intersection of AI, automation, and performance marketing,
+building intelligent systems that continuously optimize and scale.
+</p>
 </div>
 
-<div class="card reveal">
-<h2>Applications</h2>
-
-<div class="apps">
-
-<div class="app">
-<img class="icon" src="icon1.png">
-<div>
-<h3>Civil Engineering Calc</h3>
-<a class="btn" href="#">View</a>
-</div>
-</div>
-
-<div class="app">
-<img class="icon" src="icon2.png">
-<div>
-<h3>BudgetFlow</h3>
-<a class="btn" href="#">View</a>
-</div>
-</div>
-
-</div>
+<div class="card">
+<h2>AI Trading Intelligence</h2>
+<p>
+Built a fully autonomous AI trading system using predictive modeling,
+adaptive logic, and real-time decision frameworks.
+</p>
 </div>
 
 </div>
 
 <script>
 
-/* REVEAL SYSTEM */
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add("show");
-}
-});
-});
+/* ========================= */
+/* 🔥 MESH GRADIENT SYSTEM */
+/* ========================= */
 
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+const mesh = document.getElementById("meshCanvas");
+const mctx = mesh.getContext("2d");
+
+mesh.width = window.innerWidth;
+mesh.height = window.innerHeight;
+
+let blobs = [];
+
+for(let i=0;i<6;i++){
+    blobs.push({
+        x: Math.random()*mesh.width,
+        y: Math.random()*mesh.height,
+        vx: (Math.random()-0.5)*0.2,
+        vy: (Math.random()-0.5)*0.2,
+        r: 300 + Math.random()*200
+    });
+}
+
+function drawMesh(){
+    mctx.clearRect(0,0,mesh.width,mesh.height);
+
+    blobs.forEach(b=>{
+        b.x += b.vx;
+        b.y += b.vy;
+
+        if(b.x<0 || b.x>mesh.width) b.vx *= -1;
+        if(b.y<0 || b.y>mesh.height) b.vy *= -1;
+
+        let g = mctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+        g.addColorStop(0,"rgba(37,99,235,0.12)");
+        g.addColorStop(1,"transparent");
+
+        mctx.fillStyle = g;
+        mctx.beginPath();
+        mctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+        mctx.fill();
+    });
+
+    requestAnimationFrame(drawMesh);
+}
+
+drawMesh();
+
+/* ========================= */
+/* 🔥 PARTICLE SYSTEM */
+/* ========================= */
+
+const pc = document.getElementById("particleCanvas");
+const pctx = pc.getContext("2d");
+
+pc.width = window.innerWidth;
+pc.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x: Math.random()*pc.width,
+        y: Math.random()*pc.height,
+        vx:(Math.random()-0.5)*0.5,
+        vy:(Math.random()-0.5)*0.5
+    });
+}
+
+function drawParticles(){
+    pctx.clearRect(0,0,pc.width,pc.height);
+
+    particles.forEach(p=>{
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if(p.x<0||p.x>pc.width) p.vx*=-1;
+        if(p.y<0||p.y>pc.height) p.vy*=-1;
+
+        pctx.beginPath();
+        pctx.arc(p.x,p.y,1.5,0,Math.PI*2);
+        pctx.fillStyle="rgba(37,99,235,0.4)";
+        pctx.fill();
+    });
+
+    requestAnimationFrame(drawParticles);
+}
+
+drawParticles();
+
+/* RESIZE */
+window.addEventListener("resize",()=>{
+    mesh.width = window.innerWidth;
+    mesh.height = window.innerHeight;
+    pc.width = window.innerWidth;
+    pc.height = window.innerHeight;
+});
 
 </script>
 
